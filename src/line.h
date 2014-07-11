@@ -1,8 +1,6 @@
 #ifndef LIB_THOTH_LINE_H
 #define LIB_THOTH_LINE_H
 
-
-
 //Lib thoth
 
 namespace lt
@@ -12,4 +10,4 @@ namespace lt
 	};
 }
 
-#endif /LIB_THOTH_LINE_H
+#endif //LIB_THOTH_LINE_H
