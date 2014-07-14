@@ -19,7 +19,6 @@ namespace lth
 
 	};
 
-
 	template <typename T>
 	Line<T>::Line(T &_origin, T &_direction)
 	{
@@ -31,7 +30,10 @@ namespace lth
 			throw std::invalid_argument( "Line was templated with unusable class." );
 		}
 	}
-    template <typename T>
+
+	// Find closest point to two 3D lines.
+	// Will not handle some degenerate cases.
+    	template <typename T>
 	T Line<T>::intersectWithLine(Line<T> intersection_line)
 	{
 		// Define intermediate quantities.
