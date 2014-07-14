@@ -4,6 +4,7 @@
 
 namespace lth
 {
+	//Simple base class for any 3D vector / point.
 	template <typename T>
 	class Vec3
 	{
@@ -12,7 +13,8 @@ namespace lth
 		Vec3 () {}
 		Vec3<T> operator + (const Vec3<T>& v) const { return Vec3<T>(x+v.x, y+v.y, z+v.z); }
 		Vec3<T> operator - (const Vec3<T>& v) const { return Vec3<T>(x-v.x, y-v.y, z-v.z); }
-		Vec3<T> operator / (const T i) const { return Vec3(x/i, y/i, z/i); }
+		Vec3<T> operator / (const T i) const { return Vec3<T>(x/i, y/i, z/i); }
+		Vec3<T> operator * (const T i) const {return Vec3<T>(x*i, y*i, z*i);  }
 
 		Vec3<T>& operator += (const Vec3<T>& v) { x += v.x; y += v.y; z += v.z; return *this; }
 		Vec3<T>& operator -= (const Vec3<T>& v) { x -= v.x; y -= v.y; z -= v.z; return *this; }
@@ -20,6 +22,10 @@ namespace lth
 		bool operator == (const Vec3<T>& v) const { return x==v.x&&y==v.y&&z==v.z; }
 		bool operator != (const Vec3<T>& v) const { return x!=v.x||y!=v.y||z!=v.z; }
 
+        friend std::ostream& operator << (std::ostream &stream, const Vec3 &v)
+        {
+            return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
+        }
 
 		T max()
         {
