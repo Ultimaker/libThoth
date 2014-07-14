@@ -13,9 +13,9 @@ namespace lth
 		Vec3 () {}
 		Vec3<T> operator + (const Vec3<T>& v) const { return Vec3<T>(x+v.x, y+v.y, z+v.z); }
 		Vec3<T> operator - (const Vec3<T>& v) const { return Vec3<T>(x-v.x, y-v.y, z-v.z); }
-		Vec3<T> operator / (const T i) const { return Vec3<T>(x/i, y/i, z/i); }
-		Vec3<T> operator * (const T i) const {return Vec3<T>(x*i, y*i, z*i);  }
-
+		Vec3<T> operator / (const T i) const { return Vec3<T>(x / i, y / i, z / i); }
+		Vec3<T> operator * (const T i) const { return Vec3<T>(x * i, y * i, z * i);  }
+        //T operator * ( Vec3<T>& v) {return Vec3<T>(x*i, y*i, z*i);}
 		Vec3<T>& operator += (const Vec3<T>& v) { x += v.x; y += v.y; z += v.z; return *this; }
 		Vec3<T>& operator -= (const Vec3<T>& v) { x -= v.x; y -= v.y; z -= v.z; return *this; }
 
