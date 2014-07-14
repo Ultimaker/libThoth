@@ -46,7 +46,8 @@ namespace lth
 	GENERATE_HAS_MEMBER(y)  // Creates 'has_member_y'.
 	GENERATE_HAS_MEMBER(z)  // Creates 'has_member_z'.
 	GENERATE_HAS_MEMBER(dot) // creates 'has_member_dot'.
+	GENERATE_HAS_MEMBER(cross) // creates 'has_member_Cross'.
 	template <typename T>
-	bool checkValidTemplateArgument(){return (has_member_x<T>() && has_member_y<T>() && has_member_z<T>()) && has_member_dot<T>();}
+	bool checkValidTemplateArgument(){return (has_member_x<T>() && has_member_y<T>() && has_member_z<T>()) && has_member_dot<T>() && has_member_cross<T>();}
 }
 #endif //LIB_THOTH_LINE_H
