@@ -14,8 +14,8 @@ namespace lth
 		Plane(T &_normal, U &_distance);
 		Plane();
 		//rotateByLine(const Line line, const U rotation);
-
-    	protected:
+        T intersectWithLine(const Line<T> line);
+    protected:
 		T normal;
 		U distance;
 	};
@@ -33,6 +33,16 @@ namespace lth
 			throw std::invalid_argument( "Plane was templated with unusable class.");
 		}
 	}
+
+    template <typename T, typename U>
+	T Plane<T,U>::intersectWithLine(const Line<T> line)
+    {
+        U normal_dot_origin = normal.dot(line.origin);
+        U normal_dot_direction = normal.dot(line.direction);
+        U depth = (normal[2] - normal_dot_origin) / normal_dot_direction;
+        return T(line.origin + (((distance - normal_dot_origin)/normal_dot_direction) * line.direction));
+    }
+
 
 	//void Plane<T,U>::rotateByLine(const Line line, const float rotation){}
 
