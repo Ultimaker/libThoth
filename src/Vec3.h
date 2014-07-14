@@ -27,13 +27,14 @@ namespace lth
             return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
         }
 
+        //Return highest value.
 		T max()
         {
             if (x > y && x > z) return x;
             if (y > z) return y;
             return z;
         }
-
+        //Return lowest value.
         T min()
         {
             if (x < y && x < z) return x;
@@ -41,6 +42,7 @@ namespace lth
             return z;
         }
 
+        //Cross product with another vec.
         Vec3<T> cross(const Vec3<T>& v)
         {
             return Vec3<T>(
@@ -49,15 +51,17 @@ namespace lth
             x*v.y-y*v.x);
         }
 
+        //Return the normal.
         Vec3<T> normal()
         {
             T length = getLength();
             return Vec3<T>(x / length, y / length, z / length);
         }
 
+        //Get the length of the vector.
         T getLength() {return sqrt(x * x + y * y + z * z);}
 
-
+        //Normalize this vector (in place)
         void normalize()
         {
             T length = getLength();
@@ -66,6 +70,7 @@ namespace lth
             z /= length;
         }
 
+        //Dot product.
         T dot(const Vec3<T>& v)
         {
             return (v.x * x + v.y * y + v.z * z);
@@ -77,8 +82,6 @@ namespace lth
 	protected:
 
 	};
-
-
 }
 
 
