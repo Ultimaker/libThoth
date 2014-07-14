@@ -34,12 +34,36 @@ namespace lth
             return z;
         }
 
+        T min()
+        {
+            if (x < y && x < z) return x;
+            if (y < z) return y;
+            return z;
+        }
+
         Vec3<T> cross(const Vec3<T>& v)
         {
             return Vec3<T>(
             y*v.z-z*v.y,
             z*v.x-x*v.z,
             x*v.y-y*v.x);
+        }
+
+        Vec3<T> normal()
+        {
+            T length = getLength();
+            return Vec3<T>(x / length, y / length, z / length);
+        }
+
+        T getLength() {return sqrt(x * x + y * y + z * z);}
+
+
+        void normalize()
+        {
+            T length = getLength();
+            x /= length;
+            y /= length;
+            z /= length;
         }
 
         T dot(const Vec3<T>& v)
