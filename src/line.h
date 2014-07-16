@@ -47,7 +47,7 @@ namespace lth
 		auto denom = v1_dot_v1 * v2_dot_v2 - v1_dot_v2 * v1_dot_v2;
 		auto s =  (v1_dot_v2 / denom) * q12_dot_v2 - (v2_dot_v2 / denom) * q12_dot_v1;
 		auto t = -(v1_dot_v2 / denom) * q12_dot_v1 + (v1_dot_v1 / denom) * q12_dot_v2;
-		T result = T((origin + direction * s) + (intersection_line.origin + intersection_line.direction * t))/2.;
+		T result = T((origin + direction * s) + (intersection_line.origin + intersection_line.direction * t)) / 2.;
 		return result;
 	}
 }

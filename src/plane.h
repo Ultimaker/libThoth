@@ -2,6 +2,7 @@
 #define LIB_THOTH_PLANE_H
 #include <iostream>
 #include "line.h"
+#include "vecUtil.h"
 #include "HasMemberCheck.h"
 
 namespace lth
@@ -13,9 +14,10 @@ namespace lth
 		Plane(T &_normal, U &_distance);
 		Plane();
 		//rotateByLine(const Line line, const U rotation);
-        T intersectWithLine(const Line<T> line);
-        Line<T> intersectWithPlane(Plane<T,U> plane);
-        T getNormal();
+        	T intersectWithLine(const Line<T> line);
+        	Line<T> intersectWithPlane(Plane<T,U> plane);
+        	T getNormal();
+        	T rotateVectorAroundLine(T point, Line<T> line, float angle);
     protected:
 		T normal;
 		U distance;
@@ -60,6 +62,7 @@ namespace lth
         line_direction /= sqrt(line_direction.x * line_direction.x + line_direction.y * line_direction.y + line_direction.z * line_direction.z);
         return Line<T>(line_origin,line_direction);
     }
+
 
 	//void Plane<T,U>::rotateByLine(const Line line, const float rotation){}
 
